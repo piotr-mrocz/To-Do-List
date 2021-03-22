@@ -1,0 +1,46 @@
+<div class="input-group" id="datepickerIconsButton" (click)="hideAndShowDatepicker();">
+  <input type="text" class="form-control" #Date="ngModel" [(ngModel)]="date"  />
+  <ng-container *ngIf="!Date.touched">
+    {{sendValues()}}
+  </ng-container>
+  <div class="input-group-append">
+    <button class="btn btn-Dark" id="iconButton" type="button">
+        <i class="bi bi-calendar-check"></i>
+    </button>
+  </div>
+</div>
+
+<div class="overflow-auto" id="contentDatepicker" *ngIf="showDatepicker === true">
+  <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist" >
+    <li class="nav-item" role="presentation">
+      <a class="nav-link active"  id="year-tab" data-bs-toggle="tab" data-bs-target="#year" role="tab" aria-controls="year-tab" aria-selected="true">Rok</a>
+    </li>
+    <li class="nav-item" role="presentation">
+      <a class="nav-link disabled" id="month-tab"  data-bs-toggle="tab" data-bs-target="#month" role="tab" aria-controls="month-tab" aria-selected="false">Miesiąc</a>
+    </li>
+    <li class="nav-item" role="presentation">
+      <a class="nav-link disabled" id="day-tab"  data-bs-toggle="tab" data-bs-target="#day" role="tab" aria-controls="day-tab" aria-selected="false">Dzień</a>
+    </li>
+  </ul>
+  <div class="tab-content" id="myTabContent">
+    <!-- YEARS -->
+    <div class="tab-pane fade show active" id="year" role="tabpanel" aria-labelledby="year-tab">
+      <div *ngFor="let year of years">
+        <button class="datepickerButton" (click)="isLeapYear(year); goToMonthTab(); changeCurrentYearToSelectedYear(year)">{{year}}</button>
+      </div>
+    </div>
+    <!-- MONTH -->
+    <div class="tab-pane fade" id="month" role="tabpanel" aria-labelledby="month-tab">
+      <div *ngFor="let month of months">
+        <button class="datepickerButton" (click)="limitedDaysInMonth(month); goToDayTab(); changeCurrentMonthToSelectedMonth(month)">{{month}}</button>
+      </div>
+    </div>
+    <!-- DAYS -->
+    <div class="tab-pane fade" id="day" role="tabpanel" aria-labelledby="day-tab">
+      <div *ngFor="let day of days">
+        <button class="datepickerButton" id="dayButton" (click)="hideAndShowDatepicker(); changeCurrentDayToSelectedDay(day); sendValues()">{{day}}</button>
+      </div>
+    </div>
+  </div>
+</div>
+

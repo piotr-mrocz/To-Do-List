@@ -1,0 +1,82 @@
+
+    
+/* Style Scrollbar */
+
+::-webkit-scrollbar {
+    width: 12px;
+    border-radius: 10px;
+}
+  
+::-webkit-scrollbar-thumb {
+    background-color: #f79854;
+    border-radius: 10px;
+}
+  
+ul{ 
+    cursor: pointer;
+    color: #f79854;
+    font-size: larger;
+    font-weight: bold;
+    background-color: black;
+    overflow-y: hidden;
+    width:280px; 
+    margin:auto; 
+    margin-bottom: 5px;
+}
+  
+a {
+    color:#f79854;
+    padding: 5px;
+}
+  
+#contentTimepicker {
+    height:200px; 
+    position:absolute; 
+    background: #f8f9fa; 
+    margin:auto;
+    width:300px; 
+}
+  
+.timepickerButton {
+    border: none;
+    border-radius: 12px;
+    outline: none;
+    height: 30px;
+    width: 85px;
+    margin-top: 5px;
+    float: left;
+    text-align: center;
+    font-size: .875rem;
+    overflow-wrap: break-word;
+    display: inline-block;
+    margin-left: 2px;
+}
+  
+.timepickerButton:hover {
+    background-color: #f79854;
+    font-weight: bolder;
+}
+  
+.timepickerButton:focus {
+    background-color: black;
+    font-weight: bolder;
+    color:#f79854;
+}
+  
+input[readonly] {
+    background-color: white;
+}
+  
+#timepickerIconsButton {
+    width: 280px;
+}
+  
+i {
+    color: #f79854;
+    background-color: black;
+}
+  
+#iconButton {
+    background-color: black !important;
+}
+

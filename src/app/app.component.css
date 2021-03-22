@@ -1,0 +1,14 @@
+img {
+    width: 300px;
+}
+
+hr {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: 0;
+  border-top: 3px solid green;
+}
+
+li {
+  list-style-type: none;
+}

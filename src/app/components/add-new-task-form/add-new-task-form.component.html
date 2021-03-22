@@ -1,0 +1,21 @@
+<div class="col lg" id="divForForm">
+  <form #form="ngForm">
+      <div class="form-group">
+        <label for="formGroupExampleInput" class="d-flex justify-content-center">Zadanie do wykonania</label>
+        <input type="text" class="form-control" [(ngModel)]="taskName" name="name" #name="ngModel" placeholder="Co mamy do zrobienia?" required />
+        <div class="row">
+          <div class="col mt-3 mb-2">
+            <label class="d-flex justify-content-center">Data</label>
+            <app-datepicker class="d-flex justify-content-center" (values)="setDate($event)"></app-datepicker>
+          </div>
+          <div class="col mt-3 mb-2">
+            <label class="d-flex justify-content-center">Godzina</label>
+            <app-timepicker class="d-flex justify-content-center" (values)="setHour($event)"></app-timepicker>
+          </div>
+          <div class="col d-flex justify-content-center mt-3 mb-2">
+            <button (click)="addNewTask()" class="btn btn-success" [disabled]="form.invalid">Dodaj zadanie</button>
+          </div>
+        </div>
+      </div>
+  </form>
+</div>

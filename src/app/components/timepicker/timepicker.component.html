@@ -1,0 +1,36 @@
+<div class="input-group" id="timepickerIconsButton" (click)="hideAndShowTimepicker()">
+  <input class="form-control" type="text" #Hour="ngModel" [(ngModel)]="currentTime" id="example-time-input" readonly>
+  <ng-container *ngIf="!Hour.touched">
+    {{sendValues()}}
+  </ng-container>
+  <div class="input-group-append">
+    <button class="btn btn-Dark" id="iconButton" type="button">
+        <i class="bi bi-clock"></i> 
+    </button>
+  </div>
+</div>
+
+<div class="overflow-auto" id="contentTimepicker" *ngIf="showTimepicker === true">
+  <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist" >
+    <li class="nav-item" role="presentation">
+      <a class="nav-link active"  id="hour-tab" data-bs-toggle="tab" data-bs-target="#hour" role="tab" aria-controls="hour-tab" aria-selected="true">Godzina</a>
+    </li>
+    <li class="nav-item" role="presentation">
+      <a class="nav-link disabled" id="minute-tab"  data-bs-toggle="tab" data-bs-target="#minute" role="tab" aria-controls="minute-tab" aria-selected="false">Minuta</a>
+    </li>
+  </ul>
+  <div class="tab-content" id="myTabContent">
+    <!-- HOUR -->
+    <div class="tab-pane fade show active" id="hour" role="tabpanel" aria-labelledby="hour-tab">
+      <div>
+        <button class="timepickerButton" *ngFor="let hour of hoursInDay" (click)="goToMinutesTab(); changeCurrentHourToSelectedHour(hour)">{{hour}}</button>
+      </div>
+    </div>
+    <!-- MINUTE -->
+    <div class="tab-pane fade" id="minute" role="tabpanel" aria-labelledby="minute-tab">
+      <div>
+        <button class="timepickerButton" *ngFor="let minute of minutesInHour" (click)="hideAndShowTimepicker(); changeCurrentMinutesToSelectedMinutes(minute); sendValues()">{{minute}}</button>
+      </div>
+    </div>
+  </div>
+</div> 
